@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+}
+
+.scoreBoard {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 445px;
+    margin-top: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+p {
+  list-style: none;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+#how-to-play {
+  background: lightblue;
+  padding: 2px;
+  margin: 0 auto;
+  width: 500px;
+}
+
+#score, #lives {
+  margin-right: 250px;
+}

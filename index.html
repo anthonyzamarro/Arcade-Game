@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+
+    <div class="container">
+      <div id="menu">
+            <!-- Menu to start game -->
+            <h1>Welcome to Arcade Game</h1>
+            <p id="start">Click Here to Start Playing!</p>
+            <!-- Instructions on how to play the game -->
+            <ul id="how-to-play">
+              <h3>How To Play</h3>
+              <li>Use the arrow keys to move your player</li>
+              <li>Reach the water to earn three points</li>
+              <li>Collect gems to earn one point</li>
+              <li>Hitting a rock loses a point</li>
+              <li>Hitting a bug loses a life</li>
+              <li>Earn ten points to win the game</li>
+            </ul>
+            <p id="chars-title">Click Here to Select a Character</p>
+            <p id="chars">THIS IS WHERE THE CHARACTERS GO</p>
+      </div>
+      <!-- Scoreboard to track player's lives and score -->
+      <ul class="scoreBoard">
+        <li><h2 id="lives">Lives: 3</h2></li>
+        <li><h2 id="score">Score: 0</h2></li>
+      </ul>
+    </div>
+</body>
+</html>
