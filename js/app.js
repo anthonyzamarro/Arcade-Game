@@ -50,9 +50,13 @@ var Player = function (x, y) {
     this.width = 50;
     this.height = 50;
 
+
+    // this.sprite = 'images/char-boy.png';
+
 };
 var score = 0;
 var lives = 3;
+
 //Update player's position relative to other entities
 Player.prototype.update = function(dt) {
   //Alert the player if he/she wins or loses
@@ -67,28 +71,43 @@ Player.prototype.update = function(dt) {
   };
 };
 
-var playerURLs = ['images/char-boy.png', 'images/char-cat-girl.png', 'images/char-princess-girl.png', 'images/char-pink-girl.png',  'images/char-horn-girl.png'];
 //Draw the player on the screen
 Player.prototype.render = function() {
-  var displayChars = document.getElementById('chars');
-  for(var i = 0; i < playerURLs.length; i++) {
-  document.getElementById('chars-title').addEventListener('click', function() {
-          displayChars.innerHTML = ctx.drawImage(playerURLs[i], 300, 400);
+  var sprite = this.sprite = 'images/char-boy.png';
+  var chars = document.getElementsByClassName('chars');
+  var selectedChar;
 
+  chars = [].slice.call(chars);
+  chars.forEach(function(char) {
+    char.addEventListener('click', function() {
+      selectedChar = char;
+      console.log(selectedChar);
+      return selectedChar;
     });
-    this.sprite = playerURLs[i];
-  }
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  });
+
+    ctx.drawImage(Resources.get(sprite.replace(sprite, selectedChar)), this.x, this.y);
 };
 
 //Controls how to move player via player.handleInput method below
-Player.prototype.handleInput = function() {
-
+Player.prototype.handleInput = function(key) {
+      if (key === "up") {
+          this.y -= 30;
+      }
+      if (key === "down") {
+          this.y += 30;
+      }
+      if (key === "right") {
+          this.x += 30;
+      }
+      if (key === "left") {
+          this.x -= 30;
+      }
 };
 
 var Rock = function(x, y) {
     this.x = getRandomInt(20, 500);
-    this.y = getRandomInt(100, 300);
+    this.y = getRandomInt(10, 300);
     this.width = 30;
     this.height = 30;
 
@@ -120,6 +139,7 @@ Gem.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -139,9 +159,6 @@ for(var i = 0; i < 4; i++) {
   allGems.push(new Gem());
 }
 
-
-
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -153,17 +170,4 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-
-    function move() {
-      if(allowedKeys[e.keyCode] === 'left') {
-        player.x = player.x - 25;
-      } else if (allowedKeys[e.keyCode] === 'right') {
-        player.x = player.x + 25;
-      } else if (allowedKeys[e.keyCode] === 'up') {
-        player.y = player.y - 25;
-      } else if (allowedKeys[e.keyCode] === 'down') {
-        player.y = player.y + 25;
-      }
-    }
-    move();
   });

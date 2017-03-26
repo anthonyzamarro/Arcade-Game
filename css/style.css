@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background: lightyellow;
 }
 
 .scoreBoard {
@@ -26,6 +27,7 @@ p {
   padding: 2px;
   margin: 0 auto;
   width: 500px;
+  border-radius: 10%;
 }
 
 #score, #lives {
