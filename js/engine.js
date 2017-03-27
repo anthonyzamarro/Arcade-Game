@@ -85,6 +85,7 @@ var Engine = (function(global) {
           });
         });
 
+
          update(dt);
          render();
 
