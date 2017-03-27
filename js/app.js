@@ -1,7 +1,4 @@
-
 var startGame = false;
-var go = false;
-
 //Randomly generate gems and rocks on the board
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -51,7 +48,7 @@ var Player = function (x, y) {
     this.height = 50;
 
 
-    // this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-boy.png';
 
 };
 var score = 0;
@@ -73,20 +70,7 @@ Player.prototype.update = function(dt) {
 
 //Draw the player on the screen
 Player.prototype.render = function() {
-  var sprite = this.sprite = 'images/char-boy.png';
-  var chars = document.getElementsByClassName('chars');
-  var selectedChar;
-
-  chars = [].slice.call(chars);
-  chars.forEach(function(char) {
-    char.addEventListener('click', function() {
-      selectedChar = char;
-      console.log(selectedChar);
-      return selectedChar;
-    });
-  });
-
-    ctx.drawImage(Resources.get(sprite.replace(sprite, selectedChar)), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 //Controls how to move player via player.handleInput method below

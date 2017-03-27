@@ -33,3 +33,31 @@ p {
 #score, #lives {
   margin-right: 250px;
 }
+
+#chars-title {
+  margin: 15px;
+  padding: 0;
+}
+
+img {
+  margin-right: 20px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+img:hover {
+  background: #ffd700;
+}
+
+#start {
+  background: lightgray;
+  width: 200px;
+  border-radius: 10%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#start:hover {
+  color: #dc143c;
+}

@@ -28,6 +28,7 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -44,24 +45,10 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-
-        //  //Display the characters to be selected
-        //  var charRow = document.getElementById('chars');
-        //  var charSelect = function () {
-        //    var playerLength = playerURLs.length
-        //    for(var i = 0; i < playerLength; i++) {
-        //     //  charRow.innerHTML = playerLength[i].style.display = 'inline';
-        //     charRow.innerHTML = playerLength[i];
-        //     // charRow.style.display = 'inline-block';
-        //    }
-        //  };
-        //  charSelect();
-
          //Set up main menu
          var lives = document.getElementById('lives');
          var score = document.getElementById('score');
          var how = document.getElementById('how-to-play');
-         var chars = document.getElementById('chars-title');
          if(startGame) {
            canvas.hidden = false;
            render()
@@ -70,7 +57,8 @@ var Engine = (function(global) {
                 lives.hidden = true;
                 score.hidden = true;
          };
-        // Click event for main menu
+
+        //Click event for main menu
         var startGameNow = document.getElementById('start');
         var mainMenu = document.getElementById('menu');
         startGameNow.addEventListener('click', function(){
@@ -80,11 +68,23 @@ var Engine = (function(global) {
                 mainMenu.hidden = true;
                 lives.hidden = false;
                 score.hidden = false;
-                chars.hidden = true;
               }
             }
             start();
         });
+
+        //Set up character selection
+        var chars = document.getElementsByClassName('chars');
+
+        chars = [].slice.call(chars);
+        chars.forEach(function(char) {
+          char.addEventListener('click', function() {
+            player.sprite = char.getAttribute('src');
+            console.log('success');
+
+          });
+        });
+
          update(dt);
          render();
 
