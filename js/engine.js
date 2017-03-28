@@ -51,12 +51,12 @@ var Engine = (function(global) {
          var how = document.getElementById('how-to-play');
          if(startGame) {
            canvas.hidden = false;
-           render()
+           render();
          } else {
                 canvas.hidden  = true;
                 lives.hidden = true;
                 score.hidden = true;
-         };
+         }
 
         //Click event for main menu
         var startGameNow = document.getElementById('start');
@@ -79,9 +79,10 @@ var Engine = (function(global) {
         chars = [].slice.call(chars);
         chars.forEach(function(char) {
           char.addEventListener('click', function() {
-            player.sprite = char.getAttribute('src');
-            console.log('success');
-
+            if(char) {
+              player.sprite = char.getAttribute('src');
+              char.style.background = 'green';
+            }
           });
         });
 
@@ -167,18 +168,15 @@ var Engine = (function(global) {
             }
              enemy.update(dt);
        });
-          //Set the boundaries for the game
-          if(player.x > 450 || player.x < -80 || player.y > 440) { // border boundaries
-            player.x = 200;
+          //Set the bottom border and water boundry for the game
+          if(player.y > 380) { //bottom boundry
             player.y = 390;
-            console.log("GET BACK INTO THE GAME!!!");
           } else if (player.y < 0) { // water boundry
             player.x = 200;
             player.y = 390;
             var scoreCount = document.getElementById('score');
             score += 3;
             scoreCount.innerHTML = "Score: " + score;
-            console.log('WE MADE IT!!!');
           }
           player.update();
 }

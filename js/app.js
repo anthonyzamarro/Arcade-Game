@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
-};
+}
 
 
 // Enemies our player must avoid
@@ -12,8 +12,8 @@ var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = getRandomInt(x, speed);
-    this.width = 10;
-    this.height = 10;
+    this.width = 51;
+    this.height = 50;
     this.sprite = 'images/enemy-bug.png';
 
 };
@@ -26,10 +26,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     //Sets the speed of the enemies
-    this.x = this.x + this.speed * dt;
+    this.x += this.speed * dt;
     //Loops the enemy back to the start after going off of the canvas
      if(this.x > 500) {
-      this.x = 0;
+      this.x = -30;
     }
 
 };
@@ -51,9 +51,9 @@ var Player = function (x, y) {
     this.sprite = 'images/char-boy.png';
 
 };
-var score = 0;
-var lives = 3;
 
+var score = 0;
+var lives = 4;
 //Update player's position relative to other entities
 Player.prototype.update = function(dt) {
   //Alert the player if he/she wins or loses
@@ -65,7 +65,7 @@ Player.prototype.update = function(dt) {
     alert('GAME OVER!');
     document.location.reload();
     console.log('YOU LOSE!');
-  };
+  }
 };
 
 //Draw the player on the screen
@@ -81,10 +81,10 @@ Player.prototype.handleInput = function(key) {
       if (key === "down") {
           this.y += 30;
       }
-      if (key === "right") {
+      if (key === "right" && this.x < 405) {
           this.x += 30;
       }
-      if (key === "left") {
+      if (key === "left" && this.x > 10) {
           this.x -= 30;
       }
 };
@@ -128,8 +128,8 @@ Gem.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-for(var i = 0; i < 5; i++) {
-  allEnemies.push(new Enemy(getRandomInt(10, 100), getRandomInt(20, 280), getRandomInt(100, 300)))
+for(var i = 0; i < 4; i++) {
+  allEnemies.push(new Enemy(getRandomInt(10, 100), getRandomInt(20, 280), getRandomInt(100, 300)));
 }
 var player = new Player(200, 380);
 

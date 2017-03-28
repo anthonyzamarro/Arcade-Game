@@ -8,14 +8,17 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 # Arcade Game
 
-A fun and easy game inspired by the classic * Frogger * Arcade Game. The objective is to collect 10 points by reaching the water and/or collecting gems, and avoiding the bugs and rocks.
+A fun and easy game inspired by the classic *Frogger* Arcade Game. The objective is to collect 10 points by reaching the water and/or collecting gems, and avoiding the bugs and rocks.
 
 ## How To Play
+
+### Opening the Game
+- Download the ZIP file of the game and open the index.html file in the browser of your choosing.
 
 ### Start Menu
 - Select a character by clicking on the character image
 
-- Click the start button at the bottom to begin playing.
+- Click the start button at the bottom of the page to begin playing.
 
 ### Controls
 - Use the arrow keys on your keyboard to move your character.

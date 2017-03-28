@@ -1,14 +1,14 @@
 body {
-    text-align: center;
-    background: lightyellow;
+  text-align: center;
+  background: lightyellow;
 }
 
 .scoreBoard {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 445px;
-    margin-top: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 445px;
+  margin-top: 0;
 }
 
 li {
